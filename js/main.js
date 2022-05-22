@@ -5,21 +5,29 @@ let screens = prompt(
   'Какие типы экранов нужно разработать?',
   'Простые, сложные, интерактивные'
 );
-let screenPrice = +prompt('Сколько будет стоить данная работа?', '12000');
-let adaptive = !!prompt('Нужен ли адаптив на сайте?');
-
-let service1 = prompt('Какой дополнительный тип услуги нужен?');
-let servicePrice1 = +prompt('Сколько это будет стоить?');
-let service2 = prompt('Какой дополнительный тип услуги нужен?');
-let servicePrice2 = +prompt('Сколько это будет стоить?');
-
+let screenPrice = +prompt('Сколько будет стоить данная работа?', 12000);
+let adaptive = confirm('Нужен ли адаптив на сайте?');
 let rollback = 11;
 let allServicePrices;
 let fullPrice;
 let servicePercentPrice;
+let service1;
+let service2;
 
 function getAllServicePrices() {
-  return servicePrice1 + servicePrice2;
+  let sum = 0;
+
+  for (let i = 0; i < 2; i++) {
+    if (i === 0) {
+      service1 = prompt('Какой дополнительный тип услуги нужен?');
+    } else if (i === 1) {
+      service2 = prompt('Какой дополнительный тип услуги нужен?');
+    }
+
+    sum += +prompt('Сколько это будет стоить?');
+  }
+
+  return sum;
 }
 
 const showTypeOf = function (variable) {
@@ -61,6 +69,8 @@ title = getTitle();
 showTypeOf(title);
 showTypeOf(screenPrice);
 showTypeOf(adaptive);
+
+console.log('AllServicePrices', allServicePrices);
 
 console.log(getRollbackMessage(fullPrice));
 console.log(typeof title);
