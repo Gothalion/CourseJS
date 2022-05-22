@@ -1,18 +1,35 @@
 'use strict';
 
-let title = prompt('Как называется ваш проект?', ' кАльКулятор Верстки');
-let screens = prompt(
-  'Какие типы экранов нужно разработать?',
-  'Простые, сложные, интерактивные'
-);
-let screenPrice = +prompt('Сколько будет стоить данная работа?', 12000);
-let adaptive = confirm('Нужен ли адаптив на сайте?');
+let title;
+let screens;
+let screenPrice;
+let adaptive;
 let rollback = 11;
 let allServicePrices;
 let fullPrice;
 let servicePercentPrice;
 let service1;
 let service2;
+
+const isNumber = function (num) {
+  return !isNaN(parseFloat(num) && isFinite(num));
+};
+
+const asking = function () {
+  title = prompt('Как называется ваш проект?', ' кАльКулятор Верстки');
+  screens = prompt(
+    'Какие типы экранов нужно разработать?',
+    'Простые, сложные, интерактивные'
+  );
+
+  screenPrice = +prompt('Сколько будет стоить данная работа?');
+
+  while (isNumber(screenPrice)) {
+    screenPrice = +prompt('Сколько будет стоить данная работа?');
+  }
+
+  adaptive = confirm('Нужен ли адаптив на сайте?');
+};
 
 const getAllServicePrices = function () {
   let sum = 0;
@@ -61,6 +78,7 @@ const getTitle = function () {
   );
 };
 
+asking();
 allServicePrices = getAllServicePrices();
 fullPrice = getFullPrice();
 servicePercentPrice = getServicePercentPrice();
