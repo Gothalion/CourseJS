@@ -14,7 +14,7 @@ let servicePercentPrice;
 let service1;
 let service2;
 
-function getAllServicePrices() {
+const getAllServicePrices = function () {
   let sum = 0;
 
   for (let i = 0; i < 2; i++) {
@@ -28,7 +28,7 @@ function getAllServicePrices() {
   }
 
   return sum;
-}
+};
 
 const showTypeOf = function (variable) {
   console.log(variable, typeof variable);
