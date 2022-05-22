@@ -22,11 +22,9 @@ const asking = function () {
     'Простые, сложные, интерактивные'
   );
 
-  screenPrice = +prompt('Сколько будет стоить данная работа?');
-
-  while (isNumber(screenPrice)) {
+  do {
     screenPrice = +prompt('Сколько будет стоить данная работа?');
-  }
+  } while (!isNumber(screenPrice));
 
   adaptive = confirm('Нужен ли адаптив на сайте?');
 };
@@ -35,13 +33,19 @@ const getAllServicePrices = function () {
   let sum = 0;
 
   for (let i = 0; i < 2; i++) {
+    let price = 0;
+
     if (i === 0) {
       service1 = prompt('Какой дополнительный тип услуги нужен?');
     } else if (i === 1) {
       service2 = prompt('Какой дополнительный тип услуги нужен?');
     }
 
-    sum += +prompt('Сколько это будет стоить?');
+    do {
+      price = +prompt('Сколько это будет стоить?');
+    } while (!isNumber(price));
+
+    sum += +price;
   }
 
   return sum;
@@ -64,7 +68,7 @@ const getRollbackMessage = function (price) {
 };
 
 const getFullPrice = function () {
-  return screenPrice + allServicePrices;
+  return +screenPrice + allServicePrices;
 };
 
 const getServicePercentPrice = function () {
