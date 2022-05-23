@@ -12,15 +12,20 @@ let service1;
 let service2;
 
 const isNumber = function (num) {
-  return !isNaN(parseFloat(num) && isFinite(num));
+  return !isNaN(parseFloat(num) && isFinite(num) && num !== null);
 };
 
 const asking = function () {
-  title = prompt('Как называется ваш проект?', ' кАльКулятор Верстки');
-  screens = prompt(
-    'Какие типы экранов нужно разработать?',
-    'Простые, сложные, интерактивные'
-  );
+  do {
+    title = prompt('Как называется ваш проект?', ' кАльКулятор Верстки');
+  } while (!isNaN(title));
+
+  do {
+    screens = prompt(
+      'Какие типы экранов нужно разработать?',
+      'Простые, сложные, интерактивные'
+    );
+  } while (!isNaN(screens));
 
   do {
     screenPrice = +prompt('Сколько будет стоить данная работа?');
