@@ -85,13 +85,17 @@ const appData = {
       appData.title.trim().slice(1).toLowerCase()
     );
   },
+
+  start: function () {
+    appData.asking();
+    appData.allServicePrices = appData.getAllServicePrices();
+    appData.fullPrice = appData.getFullPrice();
+    appData.servicePercentPrice = appData.getServicePercentPrice();
+    appData.title = appData.getTitle();
+  },
 };
 
-appData.asking();
-appData.allServicePrices = appData.getAllServicePrices();
-appData.fullPrice = appData.getFullPrice();
-appData.servicePercentPrice = appData.getServicePercentPrice();
-appData.title = appData.getTitle();
+appData.start();
 
 console.log(appData.fullPrice);
 console.log(appData.servicePrecentPrice);
