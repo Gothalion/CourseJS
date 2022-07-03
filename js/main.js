@@ -98,9 +98,6 @@ const appData = {
   logger: function () {
     console.log(appData.fullPrice);
     console.log(appData.servicePrecentPrice);
-    for (let key in appData) {
-      console.log(key);
-    }
   },
 };
 
